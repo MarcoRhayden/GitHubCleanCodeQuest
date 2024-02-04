@@ -69,7 +69,6 @@
  figure,
  figcaption,
  footer,
- header,
  hgroup,
  menu,
  nav,
@@ -85,26 +84,25 @@
  figcaption,
  figure,
  footer,
- header,
  hgroup,
  menu,
  nav,
  section {
    display: block;
  }
- 
+
  ol,
  ul {
    list-style: none;
    margin: 0;
    padding: 0;
  }
- 
+
  blockquote,
  q {
    quotes: none;
  }
- 
+
  blockquote:before,
  blockquote:after,
  q:before,
@@ -112,84 +110,83 @@
    content: '';
    content: none;
  }
- 
+
  table {
    border-collapse: collapse;
    border-spacing: 0;
  }
- 
+
  a {
    text-decoration: none;
  }
- 
+
  .txt-rt {
    text-align: right;
  }
- 
+
  /* text align right */
  .txt-lt {
    text-align: left;
  }
- 
+
  /* text align left */
  .txt-center {
    text-align: center;
  }
- 
+
  /* text align center */
  .float-rt {
    float: right;
  }
- 
+
  /* float right */
  .float-lt {
    float: left;
  }
- 
+
  /* float left */
  .clear {
    clear: both;
  }
- 
+
  /* clear float */
  .pos-relative {
    position: relative;
  }
- 
+
  /* Position Relative */
  .pos-absolute {
    position: absolute;
  }
- 
+
  /* Position Absolute */
  .vertical-base {
    vertical-align: baseline;
  }
- 
+
  /* vertical align baseline */
  .vertical-top {
    vertical-align: top;
  }
- 
+
  /* vertical align top */
  .underline {
    padding-bottom: 5px;
    border-bottom: 1px solid #eee;
    margin: 0 0 20px 0;
  }
- 
+
  /* Add 5px bottom padding and a underline */
  nav.vertical ul li {
    display: block;
  }
- 
+
  /* vertical menu */
  nav.horizontal ul li {
    display: inline-block;
  }
- 
+
  /* horizontal menu */
  img {
    max-width: 100%;
  }
- 

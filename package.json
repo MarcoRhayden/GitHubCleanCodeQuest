@@ -11,6 +11,12 @@
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit"
+    }
+  },
+  "pre-commit": "if [ -z \"$(git diff --cached --name-only | grep -E '^(node_modules/)')\" ]; then exit 0; else echo 'Commit includes changes in node_modules. Please remove them before committing.' && exit 1; fi",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MarcoRhayden/GitHubCleanCodeQuest.git"
@@ -57,6 +63,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",

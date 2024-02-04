@@ -1,5 +1,9 @@
-const path = require('path');
+const { DefinePlugin } = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const dotenv = require('dotenv');
+const webpack = require('webpack');
+
+const path = require('path');
 
 module.exports = {
   mode: 'development',
@@ -13,6 +17,9 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', 'scss'],
     alias: {
       '@': path.join(__dirname, 'src'),
+    },
+    fallback: {
+      util: require.resolve('util/'),
     },
   },
   module: {
@@ -52,5 +59,11 @@ module.exports = {
     react: 'React',
     'react-dom': 'ReactDOM',
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new DefinePlugin({ 'process.env': JSON.stringify(dotenv.config().parsed) }),
+    new webpack.ProvidePlugin({
+      React: 'react',
+    }),
+  ],
 };

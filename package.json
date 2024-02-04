@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/MarcoRhayden/GitHubCleanCodeQuest#readme",
   "devDependencies": {
-    "git-commit-msg-linter": "^5.0.6"
+    "@types/node": "^20.11.16",
+    "git-commit-msg-linter": "^5.0.6",
+    "typescript": "^5.3.3"
   }
 }

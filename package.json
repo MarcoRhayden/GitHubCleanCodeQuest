@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/MarcoRhayden/GitHubCleanCodeQuest/issues"
   },
-  "homepage": "https://github.com/MarcoRhayden/GitHubCleanCodeQuest#readme"
+  "homepage": "https://github.com/MarcoRhayden/GitHubCleanCodeQuest#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^5.0.6"
+  }
 }

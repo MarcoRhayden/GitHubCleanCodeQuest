@@ -33,8 +33,11 @@ header {
   background-color: #222;
   color: #fff;
   font-size: 14px;
-  padding: 10px;
   text-align: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 
   a {
     color: #03bfcb;
@@ -182,6 +185,9 @@ footer {
 
 footer p {
   margin: 10px 0;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
 }
 
 footer i {

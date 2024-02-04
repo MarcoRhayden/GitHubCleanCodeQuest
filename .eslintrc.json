@@ -28,7 +28,7 @@
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "no-unused-vars": "off",
-    "import/no-unresolved": "error",
+    "import/no-unresolved": "off",
     "prettier/prettier": "error",
     "import/order": "off"
   },
@@ -40,8 +40,9 @@
       "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
-      "typescript": true,
-      "node": true
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
   }
 }

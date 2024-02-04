@@ -1,3 +1,5 @@
+import UserInfo from '@/main/presentation/pages/user-info/user-info';
+
 import { RecoilRoot } from 'recoil';
 import RecoilNexus from 'recoil-nexus';
 

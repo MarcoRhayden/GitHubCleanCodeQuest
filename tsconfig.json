@@ -7,9 +7,9 @@
     "moduleResolution": "node",
     "jsx": "react",
     "rootDirs": ["src", "tests"],
-    "baseUrl": "src",
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["*"],
+      "@/*": ["src/*"],
       "@/tests/*": ["../tests/*"]
     },
     "allowJs": true,

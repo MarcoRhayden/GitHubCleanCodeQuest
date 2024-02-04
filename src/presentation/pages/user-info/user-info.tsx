@@ -1,9 +1,17 @@
 import strings from './locales';
 import styles from './user-info-styles.scss';
 
+import { IGetUserInfo } from '@/domain/usecases/github/get-user-info';
+
 import React from 'react';
 
-const UserInfo: React.FC = () => {
+export type Props = {
+  github: {
+    user: IGetUserInfo;
+  };
+};
+
+const UserInfo: React.FC<Props> = ({ github }: Props) => {
   return (
     <React.Fragment>
       <header>

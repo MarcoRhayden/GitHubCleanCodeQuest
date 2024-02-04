@@ -1,4 +1,4 @@
-import UserInfo from '@/presentation/pages/user-info/user-info';
+import MakeUserInfo from '@/main/factories/pages/user-info/user-info-factory';
 
 import { RecoilRoot } from 'recoil';
 import RecoilNexus from 'recoil-nexus';
@@ -13,7 +13,7 @@ const Router: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/user-info" />} />
-          <Route path="/user-info" element={<UserInfo />} />
+          <Route path="/user-info" element={<MakeUserInfo />} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

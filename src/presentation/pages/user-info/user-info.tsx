@@ -1,13 +1,17 @@
 import strings from './locales';
 import styles from './user-info-styles.scss';
 
+import { IGetRepoInfo } from '@/domain/usecases/github/get-repo-info';
 import { IGetUserInfo } from '@/domain/usecases/github/get-user-info';
+import { IGetUserRepos } from '@/domain/usecases/github/get-user-repos';
 
 import React from 'react';
 
 export type Props = {
   github: {
     user: IGetUserInfo;
+    repos: IGetUserRepos;
+    repoInfo: IGetRepoInfo;
   };
 };
 

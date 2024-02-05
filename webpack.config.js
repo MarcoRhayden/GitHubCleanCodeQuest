@@ -9,7 +9,8 @@ module.exports = {
   mode: 'development',
   entry: './src/main/index.tsx',
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, 'public/js'),
+    publicPath: '/public/js',
     filename: 'bundle.js',
   },
   resolve: {

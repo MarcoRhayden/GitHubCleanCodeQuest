@@ -20,7 +20,9 @@
     }
   },
   "engines": {
-    "node": "18.x"
+    "node": "18.x",
+    "npm": "10.x",
+    "heroku": "20"
   },
   "pre-commit": "if [ -z \"$(git diff --cached --name-only | grep -E '^(node_modules/)')\" ]; then exit 0; else echo 'Commit includes changes in node_modules. Please remove them before committing.' && exit 1; fi",
   "repository": {

@@ -1,9 +1,12 @@
+import { useUserInfo } from './hooks/hooks';
 import strings from './locales';
 import styles from './user-info-styles.scss';
 
 import { IGetRepoInfo } from '@/domain/usecases/github/get-repo-info';
 import { IGetUserInfo } from '@/domain/usecases/github/get-user-info';
 import { IGetUserRepos } from '@/domain/usecases/github/get-user-repos';
+import Input from '@/presentation/components/input/input';
+import LightSpinner from '@/presentation/components/light-spinner/light-spinner';
 
 import React from 'react';
 
@@ -16,6 +19,14 @@ export type Props = {
 };
 
 const UserInfo: React.FC<Props> = ({ github }: Props) => {
+  const {
+    userData,
+    userInfoState,
+    setUserInfoState,
+    fetchUserInformationThrottled,
+    loading,
+  } = useUserInfo({ github });
+
   return (
     <React.Fragment>
       <header>
@@ -28,56 +39,80 @@ const UserInfo: React.FC<Props> = ({ github }: Props) => {
 
       <div className={styles.cardContainer}>
         <div className={styles.searchContainer}>
-          <input
+          <Input
+            id="searchContent"
             type="text"
             placeholder={strings.gitUser}
-            className={styles.searchInput}
+            value={userInfoState.searchContent}
+            name={'searchContent'}
+            state={userInfoState}
+            setState={setUserInfoState}
+            customStyle={styles.searchInput}
           />
-          <button className={styles.searchButton}>{strings.search}</button>
-        </div>
-
-        <img className={styles.round} src="templateImage" alt="user" />
-        <h3>Name Template</h3>
-        <h6>email@template.com</h6>
-        <p>User description template</p>
-        <div className={styles.button}>
-          <button className={`${styles.primary} ${styles.ghost}`}>
-            {strings.profile}
+          <button
+            onClick={fetchUserInformationThrottled}
+            className={styles.searchButton}>
+            {strings.search}
           </button>
         </div>
-        <div className={styles.followInfo}>
-          <div>
-            <p>
-              <i className="bx bx-user" />
-              {strings.followers}
-            </p>
-            <span>999</span>
-          </div>
-          <div>
-            <p>
-              <i className="bx bx-user-plus"></i> {strings.following}
-            </p>
-            <span>99</span>
-          </div>
-        </div>
 
-        <div className={styles.repositories}>
-          <h6>{strings.repositories}</h6>
-          <ul>
-            <li>
-              <a href="https://github.com/example-repo">Example Repo 1</a>
-              <span className="repo-info">
-                <i className="bx bx-star" /> {45}
-              </span>
-            </li>
-            <li>
-              <a href="https://github.com/another-repo">Another Repo 2</a>
-              <span className="repo-info">
-                <i className="bx bx-star" /> {50}
-              </span>
-            </li>
-          </ul>
-        </div>
+        {loading ? (
+          <LightSpinner customStyle={styles.spinner} />
+        ) : userData ? (
+          <React.Fragment>
+            <img
+              className={styles.round}
+              src={userData.avatar_url}
+              alt="user"
+            />
+            <h3>{userData.name}</h3>
+            <h6>{userData?.email ?? strings.emailNotShare}</h6>
+            <p>{userData.bio}</p>
+            <div className={styles.button}>
+              <a
+                href={userData.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.primary} ${styles.ghost} ${styles.profileButton}`}>
+                {strings.profile}
+              </a>
+            </div>
+            <div className={styles.followInfo}>
+              <div>
+                <p>
+                  <i className="bx bx-user" />
+                  {strings.followers}
+                </p>
+                <span>{userData.followers}</span>
+              </div>
+              <div>
+                <p>
+                  <i className="bx bx-user-plus"></i> {strings.following}
+                </p>
+                <span>{userData.following}</span>
+              </div>
+            </div>
+            <div className={styles.repositories}>
+              <h6>{strings.repositories}</h6>
+              {[...userData.repositories]
+                .sort((a, b) => b.stargazers_count - a.stargazers_count)
+                .map((repo, index) => (
+                  <ul key={`${index}-${repo.full_name}`}>
+                    <li>
+                      <a href={repo.html_url}>{repo.name}</a>
+                      <span className="repo-info">
+                        <i className="bx bx-star" /> {repo.stargazers_count}
+                      </span>
+                    </li>
+                  </ul>
+                ))}
+            </div>
+          </React.Fragment>
+        ) : (
+          <div className={styles.noDataMessageContainer}>
+            <p className={styles.noDataMessage}>{strings.noUserInfo}</p>
+          </div>
+        )}
       </div>
 
       <footer>

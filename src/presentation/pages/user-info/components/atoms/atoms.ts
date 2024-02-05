@@ -1,3 +1,5 @@
+import { UserCompleteInfoModel } from '@/domain/models/user-info/user-complete-info-model';
+
 import { atom } from 'recoil';
 import { recoilPersist } from 'recoil-persist';
 
@@ -7,7 +9,8 @@ export const userInfoAtom = atom({
   key: 'userInfoAtom',
   default: {
     loading: false,
-    userInfo: null,
+    userData: null as UserCompleteInfoModel,
+    searchContent: '',
   },
   effects_UNSTABLE: [persistAtom],
 });

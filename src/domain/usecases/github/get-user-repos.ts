@@ -8,7 +8,5 @@ export namespace GetUserRepos {
   export type Params = {
     userName: string;
   };
-  export type Model = {
-    repos: UserReposModel[];
-  };
+  export type Model = UserReposModel[];
 }

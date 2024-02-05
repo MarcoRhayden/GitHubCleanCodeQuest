@@ -8,7 +8,5 @@ export namespace GetUserInfo {
   export type Params = {
     userName: string;
   };
-  export type Model = {
-    userInfo: UserInfoModel;
-  };
+  export type Model = UserInfoModel;
 }

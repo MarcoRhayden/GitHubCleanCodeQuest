@@ -93,21 +93,21 @@ Install the latest version of npm
     // Other methods...
   }
 
-// In the data layer, implement the repository interface
-class UserDataRepository implements UserRepository {
-getUserById(id: string): User {
-// Logic to fetch user from data storage
-}
-// Other implementations...
-}
+  // In the data layer, implement the repository interface
+  class UserDataRepository implements UserRepository {
+    getUserById(id: string): User {
+      // Logic to fetch user from data storage
+    }
+    // Other implementations...
+  }
 
-// In the Main/factories layer, create a factory for the UserRepository
-class UserRepositoryFactory {
-static createUserRepository(): UserRepository {
-// Depending on your needs, you can return different implementations
-return new UserDataRepository();
-}
-}
+  // In the Main/factories layer, create a factory for the UserRepository
+  class UserRepositoryFactory {
+    static createUserRepository(): UserRepository {
+      // Depending on your needs, you can return different implementations
+      return new UserDataRepository();
+    }
+  }
 
 ````
 

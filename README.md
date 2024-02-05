@@ -14,7 +14,7 @@
     <a href="https://github.com/mehdihadeli/awesome-software-architecture/blob/main/docs/clean-architecture.md"><strong>Explore a good Clean Architecture Documentation »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/MarcoRhayden/GitHubCleanCodeQuest">View Demo</a>
+    <a href="https://github-cleancode-quest.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/MarcoRhayden/GitHubCleanCodeQuest/issues">Report Bug</a>
     ·
@@ -93,21 +93,21 @@ Install the latest version of npm
     // Other methods...
   }
 
-  // In the data layer, implement the repository interface
-  class UserDataRepository implements UserRepository {
-    getUserById(id: string): User {
-      // Logic to fetch user from data storage
-    }
-    // Other implementations...
-  }
+// In the data layer, implement the repository interface
+class UserDataRepository implements UserRepository {
+getUserById(id: string): User {
+// Logic to fetch user from data storage
+}
+// Other implementations...
+}
 
-  // In the Main/factories layer, create a factory for the UserRepository
-  class UserRepositoryFactory {
-    static createUserRepository(): UserRepository {
-      // Depending on your needs, you can return different implementations
-      return new UserDataRepository();
-    }
-  }
+// In the Main/factories layer, create a factory for the UserRepository
+class UserRepositoryFactory {
+static createUserRepository(): UserRepository {
+// Depending on your needs, you can return different implementations
+return new UserDataRepository();
+}
+}
 
 ````
 

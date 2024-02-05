@@ -10,10 +10,11 @@ const Router: React.FC = () => {
   return (
     <RecoilRoot>
       <RecoilNexus />
-      <BrowserRouter>
+      <BrowserRouter basename="/clean-code">
         <Routes>
-          <Route path="/" element={<Navigate to="/user-info" />} />
           <Route path="/user-info" element={<MakeUserInfo />} />
+          <Route path="/*" element={<MakeUserInfo />} />
+          <Route path="/" element={<Navigate to="/user-info" />} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

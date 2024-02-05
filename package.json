@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,scss,md,json}' --config ./.prettierrc",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "heroku-prebuild": "npm install --dev"
   },
   "husky": {
     "hooks": {
@@ -72,9 +73,9 @@
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
+    "webpack-dev-server": "^4.13.2",
     "webpack": "^5.90.1",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.13.2"
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "axios": "^1.6.7",

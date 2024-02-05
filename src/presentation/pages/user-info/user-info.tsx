@@ -95,7 +95,7 @@ const UserInfo: React.FC<Props> = ({ github }: Props) => {
             </div>
             <div className={styles.repositories}>
               <h6>{strings.repositories}</h6>
-              {[...userData.repositories]
+              {[...(userData.repositories || [])]
                 .sort((a, b) => b.stargazers_count - a.stargazers_count)
                 .map((repo, index) => (
                   <ul key={`${index}-${repo.full_name}`}>

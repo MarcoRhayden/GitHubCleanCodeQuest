@@ -17,6 +17,9 @@
       "pre-commit": "npm run pre-commit"
     }
   },
+  "engines": {
+    "node": "18.x"
+  },
   "pre-commit": "if [ -z \"$(git diff --cached --name-only | grep -E '^(node_modules/)')\" ]; then exit 0; else echo 'Commit includes changes in node_modules. Please remove them before committing.' && exit 1; fi",
   "repository": {
     "type": "git",
@@ -69,7 +72,7 @@
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
-    "webpack": "^5.74.0",
+    "webpack": "^5.90.1",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.2"
   },

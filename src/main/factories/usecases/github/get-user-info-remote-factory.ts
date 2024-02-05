@@ -1,4 +1,4 @@
-import { GetUserInfoRemote } from '@/data/github/usecases/get-user-info-remote';
+import { GetUserInfoRemote } from '@/data/usecases/github/get-user-info-remote';
 import { IGetUserInfo } from '@/domain/usecases/github/get-user-info';
 import { EndpointGithub } from '@/main/constants/endpoints';
 import { makeApiUrl } from '@/main/factories/http/api-url-factory';

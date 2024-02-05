@@ -36,7 +36,7 @@ export const useUserInfo = ({ github }: Props) => {
         loading: false,
       }));
     } catch (err) {
-      setUserInfoState(old => ({ ...old, loading: false }));
+      setUserInfoState(old => ({ ...old, loading: false, userData: null }));
     }
   };
 

@@ -7,7 +7,10 @@ type Props = {
 };
 
 const LightSpinner: React.FC<Props> = (props: Props) => (
-  <span className={[styles.loader, props.customStyle].join(' ')} />
+  <span
+    data-testid="spinner-test"
+    className={[styles.loader, props.customStyle].join(' ')}
+  />
 );
 
 export default LightSpinner;

@@ -50,6 +50,7 @@ const UserInfo: React.FC<Props> = ({ github }: Props) => {
             customStyle={styles.searchInput}
           />
           <button
+            data-testid={'searchButton'}
             onClick={fetchUserInformationThrottled}
             className={styles.searchButton}>
             {strings.search}

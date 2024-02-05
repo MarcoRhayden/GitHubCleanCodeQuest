@@ -8,7 +8,5 @@ export namespace GetRepoInfo {
   export type Params = {
     repoFullName: string;
   };
-  export type Model = {
-    repoInfo: RepoInfoModel;
-  };
+  export type Model = RepoInfoModel;
 }

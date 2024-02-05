@@ -10,7 +10,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,scss,md,json}' --config ./.prettierrc",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "heroku-postbuild": "npm run build",
+    "heroku-prebuild": "npm install --dev"
   },
   "husky": {
     "hooks": {

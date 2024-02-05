@@ -52,9 +52,7 @@ module.exports = {
     devMiddleware: {
       writeToDisk: true,
     },
-    static: {
-      directory: path.join(__dirname, 'public'),
-    },
+    static: './public',
     historyApiFallback: true,
   },
   externals: {

@@ -6,10 +6,12 @@ import {
 } from '@/domain/usecases/github/get-user-repos';
 
 export class GetUserReposSpy implements IGetUserRepos {
-  userRepos = mockUserRepos();
+  userRepos = null;
   params: GetUserRepos.Params;
   callCount = 0;
   async getUserRepos(params: GetUserRepos.Params): Promise<GetUserRepos.Model> {
+    if (!params.userName) return;
+    this.userRepos = mockUserRepos();
     this.params = params;
     this.callCount++;
     return Promise.resolve(this.userRepos);

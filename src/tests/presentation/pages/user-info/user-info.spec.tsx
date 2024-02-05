@@ -39,19 +39,37 @@ const makeSut = (): SutTypes => {
 };
 
 const simulateSearch = async (
-  searchContent = faker.string.alpha(10),
+  searchContent: string,
+  spy: SutTypes,
 ): Promise<void> => {
   Helper.populateInput(searchContent, 'searchContent');
   const searchButton = screen.getByTestId('searchButton');
   fireEvent.click(searchButton);
+
+  await spy.githubSpy.user.getUserInfo({ userName: searchContent });
+  await spy.githubSpy.repos.getUserRepos({ userName: searchContent });
 };
 
 describe('UserInfo component', () => {
-  test('show loading spinner', async () => {
-    const { githubSpy } = makeSut();
+  let githubSpy: SutTypes;
 
+  beforeEach(() => {
+    githubSpy = makeSut();
+  });
+
+  test('displays no user info message when there is no user data', async () => {
+    await waitFor(() => {
+      expect(
+        screen.getByText(
+          'Please provide a valid GitHub user for displaying content.',
+        ),
+      ).toBeInTheDocument();
+    });
+  });
+
+  test('show loading spinner', async () => {
     const searchContent = faker.string.alpha(10);
-    simulateSearch(searchContent);
+    simulateSearch(searchContent, githubSpy);
 
     await act(async () => {
       await waitFor(() => {

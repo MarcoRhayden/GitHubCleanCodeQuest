@@ -1,4 +1,4 @@
-<a name="readme-top"></a>
+<a name="readme-top" />
 
 <br />
 <div align="center">
@@ -48,8 +48,8 @@ Install the latest version of npm
    ```sh
    npm start
    ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+   <div>
+   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h3 align="center">About The Project</h3>
 
@@ -71,58 +71,72 @@ Install the latest version of npm
   - **Data Layer**: Handles data storage and retrieval.
   - **Infra Layer**: Manages external concerns like databases and frameworks.
   - **Presentation Layer**: Deals with the user interface and interaction.
-  
-  <p>Design Pattern Factory is used for dependency injection and managing component instantiation. It enhances the flexibility and testability of the code.</p>
-  
-  - **Factory Pattern**: Creates objects based on certain conditions, promoting loose coupling and easier testing.
+
+- **Application Layer (or EntryPoint Layer)**: This layer serves as the nexus connecting the entire project metaverse. In this specific project, this layer has been designated as the "Main" layer.
+  <br/>
+
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h3 align="center">Dependency Injection with Factory Pattern</h3>
 
+  <p>Design Pattern Factory is used for dependency injection and managing component instantiation. It enhances the flexibility and testability of the code.</p>
+
 <div align="left">
   <p>In this project, we utilize the Factory Pattern for dependency injection, promoting loose coupling and making components more testable.</p>
   
   <p>Let's look at a simple example:</p>
-  
-  ```typescript
-  // In the domain layer, define an interface for a repository
-  interface UserRepository {
-    getUserById(id: string): User;
-    // Other methods...
-  }
+</div>
 
+</div>
+  
+```typescript
+// In the domain layer, define an interface for a repository
+interface UserRepository {
+  getUserById(id: string): User;
+  // Other methods...
+}
+```
+
+```typescript
 // In the data layer, implement the repository interface
 class UserDataRepository implements UserRepository {
-getUserById(id: string): User {
-// Logic to fetch user from data storage
+  getUserById(id: string): User {
+    // Logic to fetch user from data storage
+  }
+  // Other implementations...
 }
-// Other implementations...
-}
+```
 
-// In the Main/factories layer, create a factory for the UserRepository
-class UserRepositoryFactory {
-static createUserRepository(): UserRepository {
-// Depending on your needs, you can return different implementations
-return new UserDataRepository();
-}
-}
+```typescript
+// In the Main/factories layer, create a factory for the UserDataRepository
+export const makeUserDataRepository = (): UserRepository => {
+  return new UserDataRepository();
+};
 
-````
+// Create a factory for the component in question that will use UserRepository as a dependency.
+const MakeUserRepo: React.FC = () => {
+  return (
+    <UserRepo repo={makeUserDataRepository()} />
+  );
+};
+```
 
+<div>
 <h3 align="center">Jest Unit Testing Guide</h3>
+</div>
 
 <div align="left">
   <p>This project utilizes Jest, a popular JavaScript testing framework, for performing unit tests. Jest is commonly used for testing React applications and provides a straightforward and powerful way to write and execute tests for your code.</p>
 
   <h3>Installation</h3>
 
-  Before running tests with Jest, ensure it is installed as a development dependency. You can install Jest by running the following command in your project's root directory:
+Before running tests with Jest, ensure it is installed as a development dependency. You can install Jest by running the following command in your project's root directory:
 
-  ```bash
-  npm install --save-dev jest
-````
+```bash
+npm install --save-dev jest
+```
 
 Run tests using:
 

@@ -149,3 +149,5 @@ Generate a code coverage report by running:
 ```bash
 npm test -- --coverage
 ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>

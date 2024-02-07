@@ -1,4 +1,4 @@
-import { useUserInfo } from './hooks/hooks';
+import { useUserInfo } from './hooks/use-user-info';
 import strings from './locales';
 import styles from './user-info-styles.scss';
 

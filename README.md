@@ -150,4 +150,12 @@ Generate a code coverage report by running:
 npm test -- --coverage
 ```
 
+</br>
+
+📖 [README EXAMPLE](https://github.com/othneildrew/Best-README-Template)
+</br>
+📖 [ARCHITECTURE DOC](https://github.com/mehdihadeli/awesome-software-architecture/blob/main/docs/clean-architecture.md)
+
+</br>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
